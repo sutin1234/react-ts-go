@@ -1,8 +1,20 @@
 "use client"
-import styles from './page.module.css'
+
+import {css} from '@panda/css'
 import {useState} from "react";
 
 export default function Home() {
+  const mainStyle = css({
+    fontSize: "2xl",
+    p: 4
+  })
+  const buttonStyle = css({
+    bgColor:"blue.500",
+    p:2,
+    width: 180,
+    color:"white",
+    borderRadius: 20
+  })
     const [foo, setFoo] = useState('')
     async function  getFoo(){
         const r = await fetch('http://localhost:3001/')
@@ -10,12 +22,12 @@ export default function Home() {
         setFoo(json['foo'])
     }
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <main className={mainStyle}>
+      <div>
         <p>
           foo: {foo}
         </p>
-          <button onClick={getFoo}>get foo</button>
+          <button className={buttonStyle} onClick={getFoo}>get foo</button>
       </div>
 
     </main>
