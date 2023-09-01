@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoORMHelperCache">
+    <option name="schemaMapping">
+      <map>
+        <entry key="FOO">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-server/main.go" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="scannedPathMapping">
+      <map>
+        <entry key="file://$PROJECT_DIR$/go-server/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693579811407" />
+              <option name="schema">
+                <list>
+                  <option value="FOO" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableStructMapping">
+      <map>
+        <entry key="foo" value="FOO" />
+      </map>
+    </option>
+    <option name="lastTimeChecked" value="1693577865504" />
+  </component>
+</project>
