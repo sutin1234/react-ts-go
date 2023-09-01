@@ -33,4 +33,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 go-server/tmp
+go-server/bin
 ./tmp

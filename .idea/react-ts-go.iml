@@ -4,6 +4,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.next" />
+      <excludeFolder url="file://$MODULE_DIR$/go-server/bin" />
       <excludeFolder url="file://$MODULE_DIR$/go-server/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
