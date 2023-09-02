@@ -3,10 +3,11 @@ package config
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
+	"regexp"
 
 	"github.com/joho/godotenv"
+	logs "github.com/sirupsen/logrus"
 )
 
 type Config struct {
@@ -16,11 +17,25 @@ type Config struct {
 	Port       string
 }
 
+const (
+	projectDirName = "react-ts-go"
+)
+
 func LoadConfig() (*Config, error) {
-	err := godotenv.Load(".env")
+	re := regexp.MustCompile(`^(.*` + projectDirName + `)`)
+	cwd, _ := os.Getwd()
+	rootPath := re.Find([]byte(cwd))
+
+	err := godotenv.Load(string(rootPath) + `/.env`)
 	if err != nil {
-		log.Fatalf("Error loading .env file %v", err)
+		if err != nil {
+			logs.WithFields(logs.Fields{
+				"cause": err,
+				"cwd":   cwd,
+			}).Fatalf("Problem loading .env file %v", err)
+		}
 	}
+	fmt.Printf("Loaded .enf Success %v/.env\n", rootPath)
 
 	cfg := &Config{
 		BaseUrl:    os.Getenv("BASE_URL"),
