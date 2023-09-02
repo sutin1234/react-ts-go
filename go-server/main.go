@@ -3,27 +3,30 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/sutin1234/react-go-api/config"
 )
 
-type FOO struct {
-	Foo string `json:"foo"`
+type TIME struct {
+	Time string `json:"time"`
 }
 
 func main() {
+
+	cfg, _ := config.LoadConfig()
 	r := mux.NewRouter()
 
-	r.HandleFunc("/", IndexHandleFunc).Methods(http.MethodGet)
+	r.HandleFunc(GetApiPath(cfg, "getTime"), IndexHandleFunc).Methods(http.MethodGet)
 
-	err := http.ListenAndServe(":3001", r)
+	err := http.ListenAndServe(fmt.Sprintf(":%v", cfg.Port), r)
 	if err != nil {
-		fmt.Printf("server failed %v", err)
-		return
+		log.Fatalf("server failed %v", err)
 	}
-	fmt.Printf("server running on http://localhost:3001")
+	fmt.Printf("server running on %v:%v/%v/%v", cfg.BaseUrl, cfg.Port, cfg.ApiPrefix, cfg.ApiVersion)
 }
 
 func IndexHandleFunc(w http.ResponseWriter, r *http.Request) {
@@ -31,8 +34,16 @@ func IndexHandleFunc(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
 		return
 	}
-	foo := FOO{fmt.Sprintf("foo %v", time.Now().UTC().String())}
-	bytes, _ := json.Marshal(foo)
+
+	now := time.Now().Format("2006-01-02 15:04:05")
+	timeNow := TIME{fmt.Sprint(now)}
+	bytes, _ := json.Marshal(timeNow)
 
 	_, _ = w.Write(bytes)
+}
+
+func GetApiPath(cfg *config.Config, path string) string {
+	absPath := fmt.Sprintf("/%v/%v/%v", cfg.ApiPrefix, cfg.ApiVersion, path)
+	fmt.Printf("Absolute path: %v", absPath)
+	return absPath
 }

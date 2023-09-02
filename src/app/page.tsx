@@ -1,29 +1,29 @@
 "use client"
 
-import {css} from '@panda/css'
 import {useState} from "react";
+import {buttonStyle, debugStyle, mainStyle} from "@/app/styleProps";
 
 export default function Home() {
-  const mainStyle = css({
-    fontSize: "2xl",
-    p: 4
-  })
-  const buttonStyle = css({
-    bgColor:"blue.500",
-    p:2,
-    width: 180,
-    color:"white",
-    borderRadius: 20
-  })
+
+
     const [foo, setFoo] = useState('')
     async function  getFoo(){
-        const r = await fetch('http://localhost:3001/')
+        const r = await fetch('http://localhost:8000/api/v1/getTime')
         const json = await r.json()
-        setFoo(json['foo'])
+        setFoo(json['time'])
     }
   return (
     <main className={mainStyle}>
       <div>
+        <div className={debugStyle}>
+          <div>
+            ENV: {process.env.NODE_ENV}
+        </div>
+          <div>
+            API CONTEXT: {process.env.BASE_URL}:{process.env.PORT}/{process.env.API_FREFIX}/{process.env.API_VERSION}
+          </div>
+
+        </div>
         <p>
           foo: {foo}
         </p>

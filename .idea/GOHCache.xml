@@ -3,7 +3,21 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="Config">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-server/config/config.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="FOO">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-server/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TIME">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/go-server/main.go" />
@@ -14,13 +28,25 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/go-server/config/config.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693641524853" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/go-server/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1693579811407" />
+              <option name="lastModified" value="1693641045877" />
               <option name="schema">
                 <list>
-                  <option value="FOO" />
+                  <option value="TIME" />
                 </list>
               </option>
             </ScannedPath>
@@ -30,7 +56,9 @@
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="config" value="Config" />
         <entry key="foo" value="FOO" />
+        <entry key="time" value="TIME" />
       </map>
     </option>
     <option name="lastTimeChecked" value="1693577865504" />
