@@ -22,7 +22,7 @@ jobs:
         go-version: '1.21.0'
 
     - name: Build Golang
-      run: cd go-server && go build -v ./...
+      run: cd go-server && go build -o bin/main
 
     - name: Test Golang
       run: cd go-server && go test -v ./...
