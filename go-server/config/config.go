@@ -18,7 +18,7 @@ type Config struct {
 }
 
 const (
-	projectDirName = "react-ts-go"
+	projectDirName = ""
 )
 
 func LoadConfig() (*Config, error) {
