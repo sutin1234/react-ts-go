@@ -28,7 +28,7 @@ jobs:
         go-version: '1.21.0'
 
     - name: Install dependencies
-      run: cd go-server && && go version && go get -u golang.org/x/lint/golint
+      run: cd go-server && go version && go get -u golang.org/x/lint/golint
 
     - name: Build Golang
       run: cd go-server && go build -o bin/main
