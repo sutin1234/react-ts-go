@@ -12,6 +12,7 @@ export const buttonStyle = css({
     borderRadius: 20
 })
 export const debugStyle = css({
-    color:"red.400",
-    fontSize: '18px'
+    color:"red",
+    fontSize: '18px',
+    fontWeight: 'bold'
 })
