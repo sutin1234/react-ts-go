@@ -8,7 +8,7 @@ interface TIME_SERVER {
 }
 
 export default function Home() {
-    const [foo, setFoo] = useState('')
+    const [time, setTime] = useState('')
     const [url, setUrl] = useState('');
 
     const getServerTime = async <T,>(): Promise<T> => {
@@ -17,7 +17,7 @@ export default function Home() {
     }
     const getFoo = async () =>{
         const serverTimeData = await getServerTime<TIME_SERVER>()
-        setFoo(serverTimeData.time)
+        setTime(serverTimeData.time)
     }
 
     useEffect( ()=>{
@@ -34,7 +34,7 @@ export default function Home() {
 
         </div>
         <p>
-          foo: {foo}
+          Server Time: {time}
         </p>
           <button className={buttonStyle} onClick={getFoo}>get foo</button>
       </div>

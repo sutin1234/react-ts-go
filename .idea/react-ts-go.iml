@@ -6,6 +6,8 @@
       <excludeFolder url="file://$MODULE_DIR$/.next" />
       <excludeFolder url="file://$MODULE_DIR$/go-server/bin" />
       <excludeFolder url="file://$MODULE_DIR$/go-server/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
