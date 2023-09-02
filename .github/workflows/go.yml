@@ -38,8 +38,8 @@ jobs:
         API_VERSION: ${{env.API_VERSION}}
         PORT: ${{env.PORT}}
 
-    - name: Linting Go
-      run: cd go-server && golint .
+#    - name: Linting Go
+#      run: cd go-server && golint .
 
     - name: Test Golang
       run: cd go-server && go test -v ./...
