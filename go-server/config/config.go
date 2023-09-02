@@ -30,13 +30,12 @@ func LoadConfig() (*Config, error) {
 
 	err := godotenv.Load(string(rootPath) + `/.env`)
 	if err != nil {
-		if err != nil {
-			logs.WithFields(logs.Fields{
-				"cause": err,
-				"cwd":   cwd,
-			}).Fatalf("Problem loading .env file %v", err)
-		}
+		logs.WithFields(logs.Fields{
+			"cause": err,
+			"cwd":   cwd,
+		}).Fatalf("Problem loading .env file %v", err)
 	}
+
 	fmt.Printf("Loaded .enf Success %v/.env\n", string(rootPath))
 
 	cfg := &Config{
