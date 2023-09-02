@@ -31,7 +31,7 @@ jobs:
       run: cd go-server && go version && go get -u golang.org/x/lint/golint
 
     - name: Build Golang
-      run: cd go-server && go build -o bin/main
+      run: cd go-server && ls -la && go build -o bin/main
       env:
         BASE_URL: ${{env.BASE_URL}}
         API_FREFIX: ${{env.API_FREFIX}}
